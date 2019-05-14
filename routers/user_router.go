@@ -2,7 +2,7 @@ package routers
 
 import (
 	"net/http"
-
+	"git/web/db"
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,6 +21,10 @@ func UserSignup(c *gin.Context) {
 func UserLogin(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-	println("username:" + username)
-	println("password:" + password)
+	flag := db.InsertDB(username,password)
+	if !flag{
+		c.HTML(http.StatusBadRequest,"login.html",gin.H{})
+	}else{
+		c.HTML(http.StatusOK,"index.html",gin.H{})
+	}
 }
