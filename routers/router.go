@@ -14,9 +14,9 @@ func Login(c *gin.Context) {
 }
 
 func Signup(c *gin.Context) {
-	c.HTML(http.StatusOK, "signup", gin.H{})
+	c.HTML(http.StatusOK, "signup.html", gin.H{})
 }
 
 func NoRoute(c *gin.Context) {
-	c.JSON(http.StatusNotFound, gin.H{"code": "PAGE_NOT_FOUND", "message": "Page not found"})
+	c.HTML(http.StatusNotFound,"NotFound.html", gin.H{})
 }
