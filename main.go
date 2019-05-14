@@ -1,6 +1,8 @@
 package main
 
 import (
+	"git/web/routers"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -8,16 +10,16 @@ func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("views/*.html")
 
-	uses := router.Group("/user")
+	user := router.Group("/user")
 	{
-		uses.POST("/signup", router.UserSignup)
-		user.POST("/login", router.UserLogin)
+		user.POST("/signup", routers.UserSignup)
+		user.POST("/login", routers.UserLogin)
 	}
 
-	router.GET("/", router.Home)
-	router.GET("/login", router.Login)
-	router.GET("/signup", router.Signup)
-	router.NoRoute(router.NoRoute)
+	router.GET("/", routers.Home)
+	router.GET("/login", routers.Login)
+	router.GET("/signup", routers.Signup)
+	router.NoRoute(routers.NoRoute)
 
 	router.Run()
 }
