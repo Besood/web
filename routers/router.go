@@ -2,7 +2,6 @@ package routers
 
 import (
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,7 +10,7 @@ func Home(c *gin.Context) {
 }
 
 func Login(c *gin.Context) {
-	c.HTML(http.StatusOK, "login.html", gin{})
+	c.HTML(http.StatusOK, "login.html", gin.H{})
 }
 
 func Signup(c *gin.Context) {
