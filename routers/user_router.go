@@ -2,7 +2,6 @@ package routers
 
 import (
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -23,4 +22,5 @@ func UserLogin(c *gin.Context) {
 	password := c.PostForm("password")
 	println("username:" + username)
 	println("password:" + password)
+	c.HTML(http.StatusOK,"member.html",gin.H{"username": username})
 }
