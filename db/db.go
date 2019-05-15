@@ -3,49 +3,47 @@ package db
 import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
-	"fmt"
+	"log"
+	//"fmt"
 )
+
 type DB struct {
-	id int
-	name string 
+	name     string
 	password string
 }
 
-func SelectDB() {
-	db:=OpenDB()
-	rows, err := db.Query("SELECT * FROM user.user_id where user.user_id.user_id = 1;")
+func SelectDB(username, password string) (bool,string) {
+	db := OpenDB()
+	rows, err := db.Query("SELECT user.user_id.username, user.user_id.password FROM user.user_id WHERE user.user_id.username = ? AND user.user_id.password = ?", username, password)
 	if err != nil {
-        panic(err)
-    }
-    defer rows.Close()
-
-    for rows.Next() {
-		table := DB{}
-        err := rows.Scan(&table.id,&table.password, &table.name)
-        if err != nil {
-            panic(err)
-        }
-        fmt.Println(table.id, table.name,table.password);
+		msg := "DB error"
+		log.Println(err)
+		return false,msg
+	}
+	if 	msg := rows.Next(); msg == false{
+		return false ,"ID or password is different"
 	}
 	defer db.Close()
+	defer rows.Close()
+	return true,""
 }
 
-func OpenDB() *sql.DB{
+func OpenDB() *sql.DB {
 	db, err := sql.Open("mysql", "root:methodist@tcp(127.0.0.1:3306)/user")
 
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 	return db
 }
 
-func InsertDB(name,password string) bool{
+func InsertDB(name, password string) bool {
 	db := OpenDB()
 	defer db.Close()
-	rows, err := db.Query("INSERT INTO user_id (username,password) VALUES (?,?)",name,password)
+	rows, err := db.Query("INSERT INTO user_id (username,password) VALUES (?,?)", name, password)
 	if err != nil {
-       return false
-    }
+		return false
+	}
 	defer rows.Close()
 	return true
 }
