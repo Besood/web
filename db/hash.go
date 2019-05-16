@@ -12,6 +12,6 @@ func UserPassHash(pass string)(string,error){
     return string(hash), err
 }
 
-func UserPassMach(hash,pw string)error{
-		return bcrypt.CompareHashAndPassword([]byte(hash), []byte(pw))
+func UserPassMach(hash,pw string)bool{
+		return bcrypt.CompareHashAndPassword([]byte(hash), []byte(pw)) == nil
 }
