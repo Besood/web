@@ -1,9 +1,10 @@
 .login-container{
-    margin-top: 50%;
-    margin-bottom: 50%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 0%;
 }
 .login-form-1{
-    padding: 5%;
+    padding: 50%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-1 h3{
@@ -11,7 +12,7 @@
     color: #333;
 }
 .login-container form{
-    padding: 10%;
+    padding: 0%;
 }
 .btnSubmit
 {
