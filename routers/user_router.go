@@ -2,6 +2,7 @@ package routers
 
 import (
 	"net/http"
+	"log"
 	"git/web/db"
 	"github.com/gin-gonic/gin"
 )
@@ -33,4 +34,10 @@ func UserLogin(c *gin.Context) {
 func UserPage(c *gin.Context){
 	name:=c.Param("username")
 	c.HTML(http.StatusOK,"user.html",gin.H{"username":name})
+}
+
+func Filelog(c *gin.Context){
+	file := c.PostForm("filename")
+	log.Println(file)
+	c.HTML(http.StatusOK,"NotFound.html",gin.H{})
 }
