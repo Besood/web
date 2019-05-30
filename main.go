@@ -14,6 +14,8 @@ func main() {
 		user.GET("/:username",routers.UserPage)
 	}
 	router.GET("/", routers.Home)
+	router.GET("/file",routers.FileLoad)
+	router.POST("/file",routers.Filelog)
 
 	router.GET("/login", routers.Login)
 	router.POST("/login", routers.UserLogin)
