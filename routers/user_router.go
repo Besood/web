@@ -9,18 +9,13 @@ import (
 func UserSignup(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-
-	println("username:" + username)
-	println("password:" + password)
-
-	flag:=db.InsertDB(username,password)
-	if !flag{
-		
+	flag,msg:=db.InsertDB(username,password)
+	if flag{
+		c.Redirect(http.StatusMovedPermanently,"//localhost:8080/")
 	}else{
-
+		c.Redirect(http.StatusMovedPermanently,"//localhost:8080/signup")
 	}
-
-	c.Redirect(http.StatusSeeOther, "//localhost:8080/")
+	print(msg)
 }
 
 func UserLogin(c *gin.Context) {
