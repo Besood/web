@@ -1,11 +1,13 @@
 {{ template "head" }}
     <body>
-            <div class="mx-auto" style="width: 200px;">
-                    Welcome to SampleApp.
-            <a href="//localhost:8080/login">login</a><br>
-            <a href="//localhost:8080/signup">signup</a>
+            <div class="mx">
+                Welcome to SampleApp.
             </div>
-                {{.username}}
+            <div class="test">
+                    <a class="te" href="//localhost:8080/login">login</a>
+                    <a class="te" href="//localhost:8080/signup">signup</a>
+                    <a class="te" href="//localhost:8080/user/{{.username}}">{{.username}}</a>
+            </div>
         </ul>
     </body>
 {{ template "foot" }}

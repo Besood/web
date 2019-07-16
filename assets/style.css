@@ -1,115 +1,66 @@
-.login-container{
-    margin-top: 0%;
-    margin-bottom: 0%;
-<<<<<<< HEAD
-    margin-left: 0%;
-=======
->>>>>>> 4bb9243b5fc4e3152be986bca8ce3c428a4960be
-}
-.login-form-1{
-    padding: 50%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form-1 h3{
-    text-align: center;
-    color: #333;
-}
-.login-container form{
-    padding: 0%;
-}
-.btnSubmit
-{
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    border: none;
-    cursor: pointer;
-}
-.login-form-1 .btnSubmit{
-    font-weight: 600;
-    color: #fff;
-    background-color: #0062cc;
-}
-
-.login-form-1 .ForgetPwd{
-    color: #0062cc;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.note
-{
-    text-align: center;
-    height: 80px;
-    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
-    color: #fff;
-    font-weight: bold;
-    line-height: 80px;
-}
-.form-content
-{
-    padding: 5%;
-    border: 1px solid #ced4da;
-    margin-bottom: 2%;
-}
-.form-control{
-    border-radius:1.5rem;
-}
-.btnSubmit
-{
-    border:none;
-    border-radius:1.5rem;
-    padding: 1%;
-    width: 20%;
-    cursor: pointer;
-    background: #0062cc;
-    color: #fff;
-}
-
-body {
-    background: #dedede;
-}
-.page-wrap {
-    min-height: 100vh;
-}
-.container{
-    margin-top:20px;
-}
-.image-preview-input {
+.mx {
     position: relative;
-	overflow: hidden;
-	margin: 0px;    
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;    
-}
-.image-preview-input input[type=file] {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	padding: 0;
-	font-size: 20px;
-	cursor: pointer;
-	opacity: 0;
-	filter: alpha(opacity=0);
-}
-.image-preview-input-title {
-    margin-left:2px;
+    width: 20%;
+    height: 150px;
+    border: medium solid rgba(51, 182, 53, 0.64);
 }
 
-body{ padding:20px;}
-
-.custom-file-upload input[type="file"] {
-    display: none;
+.test {
+    position: relative;
+    padding: 10px;
+    width: 100%;
 }
-.custom-file-upload .custom-file-upload1 {
-    border: 1px solid #ccc;
+
+a.te {
+    padding: 10px;
+    width: 25%;
     display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+    text-align: center;
+    background-color: rgba(109, 255, 121, 0.829);
 }
-.mx-auto {
-    width: 200px;
-    margin: 0 auto; 
-  }
+
+.container{
+    position: relative;
+    border: medium solid rgba(51, 182, 53, 0.64);
+    text-align: center;
+    font: 17px/24px sans-serif;
+}
+form.signup-form{
+    display: inline-block;
+}
+.form-control {
+    font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	padding-left: 40px;
+    letter-spacing: 1px;
+    border-radius: 4px;         /*丸角*/
+    border: 1px solid #1b2538;
+    outline: 0;
+    margin: 5px;
+}
+
+.form-control:focus{                /*疑似クラスを使用する場合は　.要素名:クラス名となる。*/
+    border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(103, 75, 230, 0.747);
+}
+.btnSubmit {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    margin: 5px;
+}
+
+.btnSubmit input[type="submit"]:active{
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+}

@@ -17,10 +17,6 @@ func Signup(c *gin.Context) {
 	c.HTML(http.StatusOK, "signup.html", gin.H{})
 }
 
-func FileLoad(c *gin.Context){
-	c.HTML(http.StatusOK,"fileupdate.html",gin.H{})
-}
-
 func NoRoute(c *gin.Context) {
 	c.HTML(http.StatusNotFound,"NotFound.html", gin.H{})
 }

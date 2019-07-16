@@ -2,7 +2,6 @@ package routers
 
 import (
 	"net/http"
-	"log"
 	"git/web/db"
 	"github.com/gin-gonic/gin"
 )
@@ -10,34 +9,26 @@ import (
 func UserSignup(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-	flag,msg:=db.InsertDB(username,password)
-	if flag{
-		c.Redirect(http.StatusMovedPermanently,"//localhost:8080/")
-	}else{
+	current:=db.InsertDB(username,password)
+	if current != true{
 		c.Redirect(http.StatusMovedPermanently,"//localhost:8080/signup")
+		return
 	}
-	print(msg)
+	c.Redirect(http.StatusMovedPermanently,"//localhost:8080/")
 }
 
 func UserLogin(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-	flag,msg:=db.SelectDB(username,password)
-	if flag {
-		c.Redirect(http.StatusMovedPermanently,"//localhost:8080/user/"+username)
-	}else{
+	current:=db.SelectDB(username,password)
+	if current!=true {
 		c.Redirect(http.StatusMovedPermanently,"//localhost:8080/login")
+		return
 	}
-	println(username,msg)
+	c.HTML(http.StatusOK,"index.html",gin.H{"username":username})
 }
 
 func UserPage(c *gin.Context){
 	name:=c.Param("username")
 	c.HTML(http.StatusOK,"user.html",gin.H{"username":name})
-}
-
-func Filelog(c *gin.Context){
-	file := c.PostForm("filename")
-	log.Println(file)
-	c.HTML(http.StatusOK,"NotFound.html",gin.H{})
 }
