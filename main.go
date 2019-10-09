@@ -7,8 +7,9 @@ import (
 
 func main() {
 	router := gin.Default()
-	router.Static("assets","./assets")
 	router.LoadHTMLGlob("views/*.html")
+	router.Static("assets","views/assets")
+	router.Static("image","views/image")
 
 	user := router.Group("/user")
 	{
